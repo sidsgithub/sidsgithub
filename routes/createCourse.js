@@ -1,10 +1,11 @@
 const models = require("../models");
 
 const newCourse = async (req, res) => {
+  var userid = JSON.parse(req.params.userId);
   const courseCreated = {
       "title":req.body.title,
       "description":req.body.description,
-      "userCreatedId": req.body.userCreatedId
+      "userId": userid
   }
       try {
         

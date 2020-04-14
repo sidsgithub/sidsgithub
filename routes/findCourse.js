@@ -2,8 +2,8 @@ const models = require("../models");
 
 const findCourse = async (req, res, next) => {
   try {
-    const course = await models.user.findOne({
-      where: { title: req.body.title },
+    const course = await models.course.findOne({
+      where: { id: req.params.courseId },
     });
     if (course) {
       return res.status(200).json({

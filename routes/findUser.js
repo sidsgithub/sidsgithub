@@ -16,6 +16,7 @@ const findUser = async (req, res, next) => {
                     return res.status(200).json({
                         message: "success",
                         roleId : user.roleId,
+                        userId : user.id,
                         token,
                     });
                 }

@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here.
     topic.belongsTo(models.course);
     topic.hasMany(models.sub_topic);
+    topic.hasMany(models.watched_topic);
   };
   return topic;
 };

@@ -1,6 +1,6 @@
-const models = require("../models");
+const models = require("../../models");
 
-const updateCourse = async (req, res) => {
+const updateCourse = async (req, res, next) => {
   console.log(req.params.courseId);
   console.log(req.body.title);
 
@@ -13,7 +13,7 @@ const updateCourse = async (req, res) => {
       await models.course.findOne({ where: { id: req.params.courseId } })
     );
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    next(error);
   }
 };
 

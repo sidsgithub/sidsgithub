@@ -1,17 +1,17 @@
-const models = require('../models');
+const models = require('../../../../models');
 
 const findAllSubTopics = async (req, res, next) => {
     try {
         const sub_topics = await models.sub_topic.findAll({
             where: { topicId: req.params.topicId },
-          });
+        });
         if (sub_topics) {
-                    return res.status(200).json({
-                        message: "success",
-                        sub_topics
-                    });
+            return res.status(200).json({
+                message: "success",
+                sub_topics
+            });
         }
-        else{
+        else {
             return res.status(404).send('no sub_topic exist.');
         }
     } catch (error) {

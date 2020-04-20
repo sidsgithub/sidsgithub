@@ -1,6 +1,6 @@
-const models = require("../models");
+const models = require("../../../../models");
 
-const newSubTopic = async (req, res) => {
+const newSubTopic = async (req, res, next) => {
   var topicId = JSON.parse(req.params.topicId);
   const sub_topicCreated = {
       "title":req.body.title,
@@ -15,7 +15,7 @@ const newSubTopic = async (req, res) => {
             sub_topic,
         });
       } catch (error) {
-        return res.status(500).json({ error: error.message });
+        next(error);
       }
 };
 

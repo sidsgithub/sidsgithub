@@ -1,4 +1,4 @@
-const models = require("../models");
+const models = require("../../../../models");
 
 const findSubTopic = async (req, res, next) => {
   try {

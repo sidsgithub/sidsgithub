@@ -1,6 +1,6 @@
-const models = require("../models");
+const models = require("../../../models");
 
-const updateTopic = async (req, res) => {
+const updateTopic = async (req, res, next) => {
   console.log(req.params.topicId);
   console.log(req.body.title);
 
@@ -13,7 +13,7 @@ const updateTopic = async (req, res) => {
       await models.topic.findOne({ where: { id: req.params.topicId } })
     );
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    next(error);
   }
 };
 

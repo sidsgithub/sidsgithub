@@ -1,0 +1,23 @@
+const router = require('express').Router({mergeParams: true});
+
+const createTopic = require('./createTopic');
+const findAllTopics = require('./findAllTopics');
+const findTopic = require('./findTopic');
+const deleteTopic = require('./deleteTopic');
+const updateTopic = require('./updateTopic');
+const subTopic = require('./subTopic');
+const findAllWatchedTopics = require('./findAllWatchedTopics');
+const markTopicWatched = require('./markTopicWatched');
+
+router.post('/',createTopic);//creates a topic
+router.get('',findAllTopics);//list all topics under a course under the course with the specified courseId.
+router.get('/:topicId',findTopic);//select a topic
+router.put('/:topicId',deleteTopic);
+router.put('/:topicId/update',updateTopic);
+
+router.use('/:topicId/sub-topic', subTopic); //subTopic routes
+
+router.get('/:topicId/watched',findAllWatchedTopics)//get all the watched topics.
+router.put('/:topicId/watched',markTopicWatched)//mark the topic watched.
+
+module.exports = router;

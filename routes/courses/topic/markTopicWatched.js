@@ -1,5 +1,12 @@
 const models = require("../../../models");
 
+
+/**
+ * creates a watched topic entry of a course for a user.
+ * @param {Object} req - request recieved by the api.
+ * @param {Object} res - message and the code generated as a response.
+ * @param {function} next - provided by express, handles errors.
+ */
 const newWatchedTopic = async (req, res, next) => {
   try {
     var topicId = JSON.parse(req.params.topicId);

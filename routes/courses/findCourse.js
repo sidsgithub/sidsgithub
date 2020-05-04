@@ -1,5 +1,11 @@
 const models = require("../../models");
 
+/**
+ * finds a course based on the courseId.
+ * @param {Object} req - request recieved by the api.
+ * @param {Object} res - message and the code generated as a response.
+ * @param {function} next - provided by express, handles errors.
+ */
 const findCourse = async (req, res, next) => {
   try {
     const course = await models.course.findOne({

@@ -1,5 +1,11 @@
 const models = require('../../../../models');
 
+/**
+ * lists all the subtopics for a topic.
+ * @param {Object} req - request recieved by the api.
+ * @param {Object} res - message and the code generated as a response.
+ * @param {function} next - provided by express, handles errors.
+ */
 const findAllSubTopics = async (req, res, next) => {
     try {
         const sub_topics = await models.sub_topic.findAll({
@@ -12,7 +18,9 @@ const findAllSubTopics = async (req, res, next) => {
             });
         }
         else {
-            return res.status(404).send('no sub_topic exist.');
+            return res.status(404).json(
+                {message:'no sub_topic exist.'}
+            )
         }
     } catch (error) {
         next(error);

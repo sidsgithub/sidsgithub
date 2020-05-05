@@ -1,4 +1,4 @@
-const models = require("../../../models");
+const models = require("../../models");
 
 /**
  * lists all the topics that have been added to the watched list.

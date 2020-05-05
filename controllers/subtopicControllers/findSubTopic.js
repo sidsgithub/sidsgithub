@@ -1,4 +1,4 @@
-const models = require("../../../../models");
+const models = require("../../models");
 /**
  * list a particular sub_topic details.
  * @param {Object} req - request recieved by the api.

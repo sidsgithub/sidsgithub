@@ -1,4 +1,4 @@
-const models = require('../../../../models');
+const models = require('../../models');
 
 /**
  * lists all the subtopics for a topic.

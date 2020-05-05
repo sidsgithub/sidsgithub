@@ -1,4 +1,4 @@
-const models = require('../../../models');
+const models = require('../../models');
 
 /**
  * lists all the topics that belongs to a course.

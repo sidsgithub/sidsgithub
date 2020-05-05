@@ -1,4 +1,4 @@
-const models = require("../../../models");
+const models = require("../../models");
 
 /**
  * deletes a topic based on it's id.

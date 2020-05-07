@@ -1,4 +1,6 @@
 const models = require("../../models");
+const logger = require("../../logger");
+
 /**
  * list a particular sub_topic details.
  * @param {Object} req - request recieved by the api.
@@ -7,6 +9,9 @@ const models = require("../../models");
  */
 const findSubTopic = async (req, res, next) => {
   try {
+
+    logger.info(req.url);
+
     const sub_topic = await models.sub_topic.findOne({
       where: { id: req.params.subtopicId },
     });
@@ -16,9 +21,15 @@ const findSubTopic = async (req, res, next) => {
         sub_topic,
       });
     } else {
-      return res.status(404).json({ message: "sub_topic does not exist" });
+      const msg = "sub_topic does not exist";
+      logger.warn("message : ", msg);
+      return res.status(404).json({ message: msg });
     }
   } catch (error) {
+
+    logger.error(req.url);
+    logger.error(error.name);
+    
     next(error);
   }
 };

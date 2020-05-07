@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require("../../logger");
 
  /**
  * find a topic based on it's id.
@@ -8,6 +9,7 @@ const models = require("../../models");
  */
 const findTopic = async (req, res, next) => {
   try {
+    logger.info(req.url);
     const topic = await models.topic.findOne({
       where: { id: req.params.topicId },
     });
@@ -17,9 +19,13 @@ const findTopic = async (req, res, next) => {
         topic,
       });
     } else {
-      return res.status(404).json({ message: "topic does not exist" });
+      const msg = "topic does not exist";
+      logger.warn(msg);
+      return res.status(404).json({ message: msg });
     }
   } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
     next(error);
   }
 };

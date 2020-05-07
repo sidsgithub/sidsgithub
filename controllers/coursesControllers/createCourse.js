@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require('../../logger');
 
 /**
  * creates a new course.
@@ -7,6 +8,9 @@ const models = require("../../models");
  * @param {function} next - provided by express, handles errors.
  */
 const newCourse = async (req, res, next) => {
+
+  logger.info(req.url);
+
   var userid = JSON.parse(req.params.userId);
   const courseCreated = {
       "title":req.body.title,
@@ -20,6 +24,8 @@ const newCourse = async (req, res, next) => {
           course,
         });
       } catch (error) {
+        logger.error(req.url);
+        logger.error(error.name);
         next(error);
       }
 };

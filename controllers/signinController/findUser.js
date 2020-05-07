@@ -2,6 +2,7 @@ const models = require("../../models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
+const logger = require('../../logger');
 
 /**
  * SignIn : Checks for user in the database.
@@ -9,8 +10,10 @@ const Joi = require("joi");
  * @param {Object} res - message and the code generated as a response.
  * @param {function} next - provided by express, handles errors.
  */
-
 const findUser = async (req, res, next) => {
+
+  logger.info(req.url);
+
   const schema = Joi.object().keys({
     email: Joi.string().required(),
     password: Joi.string().required(),
@@ -38,18 +41,24 @@ const findUser = async (req, res, next) => {
               token,
             });
           } else {
+            const msg = "password did not match.";
+            logger.warn("message : ",msg);
             return res.status(404).json({
-              message: "password did not match",
+              message: msg,
             });
           }
         });
       }
     } else {
+      const msg = "user does not exist.";
+      logger.warn("message : ",msg);
       return res.status(404).json({
-        message: "user does not exist",
+        message: msg,
       });
     }
   } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
     next(error);
   }
 };

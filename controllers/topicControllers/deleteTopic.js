@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require("../../logger");
 
 /**
  * deletes a topic based on it's id.
@@ -7,8 +8,8 @@ const models = require("../../models");
  * @param {function} next - provided by express, handles errors.
  */
 const deleteTopic = async (req, res, next) => {
-  console.log(req.params.topicId)
   try {
+    logger.info(req.url);
     const topic = await models.topic.destroy(
       {
         where: { id: req.params.topicId }
@@ -18,7 +19,9 @@ const deleteTopic = async (req, res, next) => {
       topic,
     });
   } catch (error) {
-    next(error); ƒ
+    logger.error(req.url);
+    logger.error(error.name);
+    next(error); 
   }
 };
 

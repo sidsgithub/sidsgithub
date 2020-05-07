@@ -1,7 +1,7 @@
-const Joi = require("joi");
 const models = require("../../models");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const logger = require("../../logger");
 
 /**
  * SignUp : creates a user .
@@ -9,14 +9,8 @@ const saltRounds = 10;
  * @param {Object} res - message and the code generated as a response.
  * @param {function} next - provided by express, handles errors.
  */
-const newUser = async (req, res,next) => {
-  const schema = Joi.object().keys({
-    name: Joi.string().required(),
-    email: Joi.string().required(),
-    password: Joi.string().required(),
-    profession: Joi.string().optional(),
-    role: Joi.string().required(),
-  });
+const newUser = async (req, res, next) => {
+  logger.info(req.url);
 
   const role = await models.role.findOne({
     where: { name: req.body.role },
@@ -24,7 +18,6 @@ const newUser = async (req, res,next) => {
 
   bcrypt.genSalt(saltRounds, function (err, salt) {
     bcrypt.hash(req.body.password, salt, async function (err, hash) {
-
       try {
         const to_persist = {
           name: req.body.name,
@@ -36,20 +29,13 @@ const newUser = async (req, res,next) => {
 
         const user = await models.user.create(to_persist);
 
-        const { value, error } = Joi.validate(req.body, schema);
-
-        if (error && error.details) {
-          return res.status(400).json({
-            message: error,
-          });
-        }
-
         return res.status(201).json({
           user,
         });
-
       } catch (error) {
-        next(error)
+        logger.error(req.url);
+        logger.error(error.name);
+        next(error);
       }
     });
   });

@@ -1,5 +1,5 @@
-const models = require('../../models');
-
+const models = require("../../models");
+const logger = require("../../logger");
 
 /**
  * list all the courses created.
@@ -8,19 +8,25 @@ const models = require('../../models');
  * @param {function} next - provided by express, handles errors.
  */
 const findAllCourses = async (req, res, next) => {
-    try {
-        const courses = await models.course.findAll();
-        if (courses) {
-            return res.status(200).json({
-                message: "success",
-                courses
-            });
-        }
-        else {
-            return res.status(404).send('no course exist.');
-        }
-    } catch (error) {
-        next(error);
+  try {
+    logger.info(req.url);
+
+    const courses = await models.course.findAll();
+
+    if (courses) {
+      return res.status(200).json({
+        message: "success",
+        courses,
+      });
+    } else {
+      const msg = "no course exist.";
+      logger.warn("message : ", msg);
+      return res.status(404).json({ message: msg });
     }
-}
-module.exports = exports = findAllCourses
+  } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
+    next(error);
+  }
+};
+module.exports = exports = findAllCourses;

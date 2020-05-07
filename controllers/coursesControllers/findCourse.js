@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require("../../logger");
 
 /**
  * finds a course based on the courseId.
@@ -8,6 +9,8 @@ const models = require("../../models");
  */
 const findCourse = async (req, res, next) => {
   try {
+    logger.info(req.url);
+
     const course = await models.course.findOne({
       where: { id: req.params.courseId },
     });
@@ -17,9 +20,15 @@ const findCourse = async (req, res, next) => {
         course,
       });
     } else {
-      return res.status(404).send("course does not exist");
+      const msg = "course does not exist";
+      logger.warn("message : ", msg);
+      return res.status(404).json({
+        "message" : msg
+      });
     }
   } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
     next(error);
   }
 };

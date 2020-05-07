@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require("../../logger");
 
 /**
  * deletes a new course.
@@ -7,20 +8,22 @@ const models = require("../../models");
  * @param {function} next - provided by express, handles errors.
  */
 const deleteCourse = async (req, res, next) => {
-    console.log(req.params.courseId)
-      try {
-        const course = await models.course.destroy(
-            {
-                where : { id: req.params.courseId }
-            }
-        );
-        return res.status(201).json({
-            course,
-        });
-      } catch (error) {
-       next(error);
-      }
+    
+  logger.info(req.url);
+
+  try {
+    const course = await models.course.destroy({
+      where: { id: req.params.courseId },
+    });
+    return res.status(201).json({
+      course,
+    });
+  } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
+
+    next(error);
+  }
 };
 
-module.exports = deleteCourse
-;
+module.exports = deleteCourse;

@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require("../../logger");
 
 /**
  * lists all the topics that have been added to the watched list.
@@ -8,6 +9,7 @@ const models = require("../../models");
  */
 const findAllWatchedTopics = async (req, res, next) => {
   try {
+    logger.info(req.url);
     const topics = await models.watched_topic.findAll({
       where: { courseId: req.params.courseId, userId: req.params.userId },
     });
@@ -17,9 +19,13 @@ const findAllWatchedTopics = async (req, res, next) => {
         topics,
       });
     } else {
-      return res.status(404).json({message : "no topic exist."});
+      const msg = "no topic exist.";
+      logger.warn("message : ",msg);
+      return res.status(404).json({message :msg});
     }
   } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
     next(error);
   }
 };

@@ -1,4 +1,5 @@
 const models = require("../../models");
+const logger = require("../../logger");
 
 /**
  * updates the course title based on it's id.
@@ -7,18 +8,21 @@ const models = require("../../models");
  * @param {function} next - provided by express, handles errors.
  */
 const updateCourse = async (req, res, next) => {
-  console.log(req.params.courseId);
-  console.log(req.body.title);
-
   try {
+    logger.info(req.url);
+
     await models.course.update(
       { title: req.body.title },
       { where: { id: req.params.courseId } }
     );
-    return res.json(
-      await models.course.findOne({ where: { id: req.params.courseId } })
-    );
+    return res
+      .status(200)
+      .json(
+        await models.course.findOne({ where: { id: req.params.courseId } })
+      );
   } catch (error) {
+    logger.error(req.url);
+    logger.error(error.name);
     next(error);
   }
 };

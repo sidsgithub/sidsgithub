@@ -1,8 +1,8 @@
 const router = require('express').Router({mergeParams: true});
 
-const createSubTopic = require('../../../../controllers/subtopicControllers/createSubTopic');
-const findAllSubTopics = require('../../../../controllers/subtopicControllers/findAllSubTopics');
-const findSubTopic = require('../../../../controllers/subtopicControllers/findSubTopic');
+const createSubTopic = require('./createSubTopic');
+const findAllSubTopics = require('./findAllSubTopics');
+const findSubTopic = require('./findSubTopic');
 
 router.post('/',createSubTopic);//creates a subtopic
 router.get('/',findAllSubTopics);//list all topics under a topic

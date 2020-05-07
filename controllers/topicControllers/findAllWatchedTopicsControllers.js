@@ -3,30 +3,28 @@ const logger = require("../../logger");
 
 /**
  * lists all the topics that have been added to the watched list.
- * @param {Object} req - request recieved by the api.
+ * @param {Object} topicObject - contains course's Id and user's Id.
  * @param {Object} res - message and the code generated as a response.
  * @param {function} next - provided by express, handles errors.
  */
-const findAllWatchedTopics = async (req, res, next) => {
+const findAllWatchedTopics = async (topicObject) => {
   try {
-    logger.info(req.url);
+    
     const topics = await models.watched_topic.findAll({
-      where: { courseId: req.params.courseId, userId: req.params.userId },
+      where: { courseId: topicObject.courseId, userId: topicObject.userId },
     });
     if (topics) {
-      return res.status(200).json({
+      return {
         message: "success",
         topics,
-      });
+      };
     } else {
       const msg = "no topic exist.";
       logger.warn("message : ",msg);
-      return res.status(404).json({message :msg});
+      return {message :msg};
     }
   } catch (error) {
-    logger.error(req.url);
-    logger.error(error.name);
-    next(error);
+   throw new Error(error);
   }
 };
 module.exports = exports = findAllWatchedTopics;

@@ -1,6 +1,7 @@
 const models = require("../../models");
 const logger = require("../../logger");
-
+const updateCourseController = require('../../controllers/coursesControllers/updateCourseController');
+const globalResonseHandler = require('../../globalResonseHandler');
 /**
  * updates the course title based on it's id.
  * @param {Object} req - request recieved by the api.
@@ -10,16 +11,10 @@ const logger = require("../../logger");
 const updateCourse = async (req, res, next) => {
   try {
     logger.info(req.url);
+    const object = { title: req.body.title, courseId: req.params.courseId };
+    const result  = await updateCourseController(object);
+    globalResonseHandler(result, req, res, next);
 
-    await models.course.update(
-      { title: req.body.title },
-      { where: { id: req.params.courseId } }
-    );
-    return res
-      .status(200)
-      .json(
-        await models.course.findOne({ where: { id: req.params.courseId } })
-      );
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

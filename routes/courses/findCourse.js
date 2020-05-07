@@ -1,5 +1,6 @@
 const models = require("../../models");
 const logger = require("../../logger");
+const findAllCoursesController = require('../../controllers/coursesControllers/findAllCoursesController')
 
 /**
  * finds a course based on the courseId.
@@ -10,22 +11,9 @@ const logger = require("../../logger");
 const findCourse = async (req, res, next) => {
   try {
     logger.info(req.url);
+    const courseId = req.params.courseId;
+    findAllCoursesController(courseId);
 
-    const course = await models.course.findOne({
-      where: { id: req.params.courseId },
-    });
-    if (course) {
-      return res.status(200).json({
-        message: "success",
-        course,
-      });
-    } else {
-      const msg = "course does not exist";
-      logger.warn("message : ", msg);
-      return res.status(404).json({
-        "message" : msg
-      });
-    }
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

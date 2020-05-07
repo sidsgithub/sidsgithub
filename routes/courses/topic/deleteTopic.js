@@ -1,6 +1,6 @@
-const models = require("../../models");
-const logger = require("../../logger");
-
+const logger = require("../../../logger");
+const deleteTopicController = require("../../../controllers/topicControllers/deleteTopicController")
+const globalResonseHandler = require('../../../globalResonseHandler');
 /**
  * deletes a topic based on it's id.
  * @param {Object} req - request recieved by the api.
@@ -10,14 +10,9 @@ const logger = require("../../logger");
 const deleteTopic = async (req, res, next) => {
   try {
     logger.info(req.url);
-    const topic = await models.topic.destroy(
-      {
-        where: { id: req.params.topicId }
-      }
-    );
-    return res.status(201).json({
-      topic,
-    });
+    const result = await deleteTopicController(req.params.topicId);
+    globalResonseHandler(result,req,res,next)
+    
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

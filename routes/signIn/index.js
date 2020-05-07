@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const findUser = require('../../controllers/signinController/findUser');
+const findUser = require('./findUser');
 
 router.post('/', findUser);
 

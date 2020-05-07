@@ -1,5 +1,6 @@
-const models = require("../../models");
-const logger = require("../../logger");
+const logger = require("../../../logger");
+const findTopicController = require("../../../controllers/topicControllers/findTopicController")
+const globalResonseHandler = require('../../../globalResonseHandler');
 
  /**
  * find a topic based on it's id.
@@ -10,19 +11,8 @@ const logger = require("../../logger");
 const findTopic = async (req, res, next) => {
   try {
     logger.info(req.url);
-    const topic = await models.topic.findOne({
-      where: { id: req.params.topicId },
-    });
-    if (topic) {
-      return res.status(200).json({
-        message: "success",
-        topic,
-      });
-    } else {
-      const msg = "topic does not exist";
-      logger.warn(msg);
-      return res.status(404).json({ message: msg });
-    }
+    const result = await findTopicController(req.params.topicId);
+    globalResonseHandler(result,req,res,next)
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

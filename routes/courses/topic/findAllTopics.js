@@ -1,5 +1,6 @@
-const models = require("../../models");
-const logger = require("../../logger");
+const logger = require("../../../logger");
+const findAllTopicsController = require("../../../controllers/topicControllers/findAllTopicsController")
+const globalResonseHandler = require('../../../globalResonseHandler');
 
 /**
  * lists all the topics that belongs to a course.
@@ -10,19 +11,9 @@ const logger = require("../../logger");
 const findAllTopics = async (req, res, next) => {
   try {
     logger.info(req.url);
-    const topics = await models.topic.findAll({
-      where: { courseId: req.params.courseId },
-    });
-    if (topics) {
-      return res.status(200).json({
-        message: "success",
-        topics,
-      });
-    } else {
-      const msg = "no topic exist.";
-      logger.warn("message : ",msg);
-      return res.status(404).json({ message: msg });
-    }
+    const result = await findAllTopicsController(req.params.courseId);
+    globalResonseHandler(result,req,res,next)
+    
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

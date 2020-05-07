@@ -1,6 +1,7 @@
 const models = require("../../models");
 const logger = require('../../logger');
-
+const createCourseController = require('../../controllers/coursesControllers/createCourseController')
+const globalResonseHandler = require('../../globalResonseHandler');
 /**
  * creates a new course.
  * @param {Object} req - request recieved by the api.
@@ -12,22 +13,21 @@ const newCourse = async (req, res, next) => {
   logger.info(req.url);
 
   var userid = JSON.parse(req.params.userId);
+try{
+
   const courseCreated = {
       "title":req.body.title,
       "description":req.body.description,
       "userId": userid
   }
-      try {
-        const course = await models.course.create(courseCreated);
-        
-        return res.status(201).json({
-          course,
-        });
-      } catch (error) {
-        logger.error(req.url);
-        logger.error(error.name);
-        next(error);
-      }
+
+  const result = await createCourseController(courseCreated);
+  globalResonseHandler(result,req,res,next)
+}
+catch(error){
+  next(error);
+}
+
 };
 
 module.exports = newCourse;

@@ -1,13 +1,13 @@
 const router = require('express').Router({mergeParams: true});
 
-const createCourse = require('../../controllers/coursesControllers/createCourse');
-const findAllCourses = require('../../controllers/coursesControllers/findAllCourses');
-const findCourse = require('../../controllers/coursesControllers/findCourse');
-const deleteCourse = require('../../controllers/coursesControllers/deleteCourse');
-const updateCourse = require('../../controllers/coursesControllers/updateCourse');
+const createCourse = require('./createCourse');
+const findAllCourses = require('./findAllCourses');
+const findCourse = require('./findCourse');
+const deleteCourse = require('./deleteCourse');
+const updateCourse = require('./updateCourse');
 
 const topic = require('./topic');
-const findAllWatchedTopics = require('../../controllers/topicControllers/findAllWatchedTopics');
+const findAllWatchedTopics = require('./findAllWatchedTopics');
 
 
 router.post('/', createCourse);//user creates a course with uID

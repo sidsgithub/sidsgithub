@@ -1,5 +1,6 @@
-const models = require("../../models");
-const logger = require("../../logger");
+const logger = require("../../../../logger");
+const findAllSubTopicsController = require("../../../../controllers/subtopicControllers/findAllSubTopicsController");
+const globalResonseHandler = require("../../../../globalResonseHandler");
 
 /**
  * lists all the subtopics for a topic.
@@ -10,20 +11,8 @@ const logger = require("../../logger");
 const findAllSubTopics = async (req, res, next) => {
   try {
     logger.info(req.url);
-
-    const sub_topics = await models.sub_topic.findAll({
-      where: { topicId: req.params.topicId },
-    });
-    if (sub_topics) {
-      return res.status(200).json({
-        message: "success",
-        sub_topics,
-      });
-    } else {
-      const msg = "no sub_topic exist.";
-      logger.warn("message : ",msg);
-      return res.status(404).json({ message: msg });
-    }
+    const result = await findAllSubTopicsController(req.params.topicId);
+    globalResonseHandler(result, req, res, next);
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

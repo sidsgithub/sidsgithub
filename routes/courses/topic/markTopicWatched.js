@@ -1,7 +1,6 @@
-const models = require("../../models");
-const logger = require("../../logger");
-
-
+const logger = require("../../../logger");
+const markTopicWatchedController = require("../../../controllers/topicControllers/markTopicWatchedController");
+const globalResonseHandler = require("../../../globalResonseHandler");
 /**
  * creates a watched topic entry of a course for a user.
  * @param {Object} req - request recieved by the api.
@@ -10,9 +9,6 @@ const logger = require("../../logger");
  */
 const newWatchedTopic = async (req, res, next) => {
   try {
-
-    logger.info(req.url);
-
     var topicId = JSON.parse(req.params.topicId);
     var courseId = JSON.parse(req.params.courseId);
     var userId = JSON.parse(req.params.userId);
@@ -24,11 +20,10 @@ const newWatchedTopic = async (req, res, next) => {
       topicId: topicId,
     };
 
-    const topic = await models.watched_topic.create(topicWatched);
-
-    return res.status(201).json({
-      topic,
-    });
+    logger.info(req.url);
+    const result = await markTopicWatchedController(topicWatched);
+    globalResonseHandler(result, req, res, next);
+    
   } catch (error) {
     logger.error(req.url);
     logger.error(error.name);

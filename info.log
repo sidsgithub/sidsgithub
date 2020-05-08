@@ -308,3 +308,150 @@
 {"message":"/","level":"info"}
 {"message":"/","level":"info"}
 {"message":"/124/watched","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/66/watched","level":"info"}
+{"message":"/86","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/122","level":"info"}
+{"message":"/","level":"info"}
+{"message":"\"password\" length must be at least 3 characters long","level":"error"}
+{"message":"\"password\" length must be at least 3 characters long","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"\"userCreatedId\" is not allowed","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"password\" is not allowed to be empty","level":"error"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"/","level":"info"}
+{"level":"warn","message":"message : "}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"/","level":"info"}
+{"level":"warn","message":"message : "}
+{"message":"/","level":"info"}
+{"level":"warn","message":"message : "}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"/","level":"info"}
+{"level":"warn","message":"message : "}
+{"message":"/","level":"info"}
+{"level":"warn","message":"message : "}
+{"message":"/","level":"info"}
+{"message":"/","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/1","level":"info"}
+{"message":"/1","level":"info"}
+{"message":"/2","level":"info"}
+{"message":"/109","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/1111","level":"info"}
+{"message":"/111","level":"info"}
+{"message":"/","level":"info"}
+{"message":"/112","level":"info"}
+{"message":"/113","level":"info"}
+{"message":"/109","level":"info"}
+{"message":"/109","level":"info"}
+{"message":"/109","level":"info"}
+{"message":"/undefined","level":"info"}
+{"message":"/undefined","level":"info"}
+{"message":"/109","level":"info"}
+{"message":"/undefined","level":"info"}
+{"message":"/11/update","level":"info"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"/11/update","level":"info"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/11/update","level":"info"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/11/update","level":"info"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/11/update","level":"info"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/11/update","level":"info"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"info"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/11/update","level":"info"}

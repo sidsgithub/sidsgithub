@@ -35,3 +35,72 @@
 {"message":"ReferenceError","level":"error"}
 {"message":"/123/watched","level":"error"}
 {"message":"TypeError","level":"error"}
+{"message":"\"password\" length must be at least 3 characters long","level":"error"}
+{"message":"\"password\" length must be at least 3 characters long","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"\"userCreatedId\" is not allowed","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"password\" is not allowed to be empty","level":"error"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"\"email\" must be a valid email","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"name\" is required","level":"error"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}
+{"message":"\"title\" is required","level":"error"}
+{"message":"/","level":"error"}
+{"message":"Error","level":"error"}

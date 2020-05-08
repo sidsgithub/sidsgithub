@@ -1,4 +1,3 @@
-const models = require("../../models");
 const logger = require("../../logger");
 const findAllWatchedTopicsController = require('../../controllers/topicControllers/findAllWatchedTopicsControllers');
 const globalResonseHandler = require('../../globalResonseHandler');

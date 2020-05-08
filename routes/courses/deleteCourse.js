@@ -1,4 +1,3 @@
-const models = require("../../models");
 const logger = require("../../logger");
 const deleteCourseController = require('../../controllers/coursesControllers/deleteCourseController')
 const globalResonseHandler = require('../../globalResonseHandler');

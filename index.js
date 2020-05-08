@@ -13,7 +13,7 @@ const port = process.env.PORT || 4000;
 
 app.use('/', routes);
 
-app.listen(port, (error) => {
+const server = app.listen(port, (error) => {
 
     if (error) {
         console.log(error);
@@ -28,3 +28,4 @@ app.use((error, req, res, next) => {
         error,
     })
 });
+module.exports = server

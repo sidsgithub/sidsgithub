@@ -14,6 +14,7 @@ const newCourse = async (courseCreated) => {
       course,
     };
   } catch (error) {
+    logger.error(error.name);
     throw new Error(error)
   }
 };

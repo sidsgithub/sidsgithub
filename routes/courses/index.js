@@ -9,12 +9,15 @@ const updateCourse = require('./updateCourse');
 const topic = require('./topic');
 const findAllWatchedTopics = require('./findAllWatchedTopics');
 
+const createCouresValidation = require('../../validationMiddleware/createCouresValidation');
+const updateCourseValidation = require('../../validationMiddleware/updateCourseValidatino')
 
-router.post('/', createCourse);//user creates a course with uID
+
+router.post('/',createCouresValidation, createCourse);//user creates a course with uID
 router.get('/',findAllCourses);//all the courses of the course table listed
 router.get('/:courseId',findCourse);//clicks on course 
 router.put('/:courseId',deleteCourse);
-router.put('/:courseId/update',updateCourse);
+router.put('/:courseId/update',updateCourseValidation,updateCourse);
 router.use('/:courseId/topic', topic); // topic routes
 router.get('/:courseId/watched', findAllWatchedTopics);
 
